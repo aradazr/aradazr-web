@@ -1,8 +1,82 @@
-# پورتفولیو مدرن | Modern Portfolio
+# آراد آذرپناه | Arad Azarpanah - توسعه‌دهنده فول‌استک و طراح UI/UX
 
-یک لندینگ پیج پورتفولیو جذاب و مدرن با افکت‌های شیشه‌ای، انیمیشن‌های پیشرفته و قابلیت تغییر تم و زبان.
+## 👨‍💻 درباره من
+آراد آذرپناه یک توسعه‌دهنده فول‌استک با بیش از 5 سال تجربه در طراحی و توسعه اپلیکیشن‌های موبایل و وب است.
 
-A stunning and modern portfolio landing page with glass morphism effects, advanced animations, and theme/language switching capabilities.
+## 🚀 مهارت‌ها
+- **توسعه موبایل:** Flutter, Dart
+- **توسعه وب:** HTML5, CSS3, JavaScript, Python
+- **طراحی:** Figma, Adobe Photoshop
+- **امنیت:** Android Security
+- **معماری:** Clean Architecture, BLoC, MVVM
+
+## 📱 پروژه‌ها
+- اپلیکیشن‌های موبایل با Flutter
+- طراحی رابط کاربری و تجربه کاربری
+- توسعه وب‌سایت‌های ریسپانسیو
+- پروژه‌های امنیت موبایل
+
+## 📞 تماس
+- **ایمیل:** aradazarpanah27@gmail.com
+- **تلفن:** 09337109366
+- **موقعیت:** اهواز، ایران
+
+## 🌐 شبکه‌های اجتماعی
+- [GitHub](https://github.com/aradazr)
+- [LinkedIn](https://www.linkedin.com/in/aradazr)
+- [Telegram](https://t.me/aradazr)
+- [Instagram](https://www.instagram.com/aradazr.dev/)
+
+---
+
+# Arad Azarpanah - Full Stack Developer & UI/UX Designer
+
+## 👨‍💻 About Me
+Arad Azarpanah is a full-stack developer with over 5 years of experience in mobile and web application design and development.
+
+## 🚀 Skills
+- **Mobile Development:** Flutter, Dart
+- **Web Development:** HTML5, CSS3, JavaScript, Python
+- **Design:** Figma, Adobe Photoshop
+- **Security:** Android Security
+- **Architecture:** Clean Architecture, BLoC, MVVM
+
+## 📱 Projects
+- Mobile applications with Flutter
+- User interface and user experience design
+- Responsive website development
+- Mobile security projects
+
+## 📞 Contact
+- **Email:** aradazarpanah27@gmail.com
+- **Phone:** 09337109366
+- **Location:** Ahvaz, Iran
+
+## 🌐 Social Media
+- [GitHub](https://github.com/aradazr)
+- [LinkedIn](https://www.linkedin.com/in/aradazr)
+- [Telegram](https://t.me/aradazr)
+- [Instagram](https://www.instagram.com/aradazr.dev/)
+
+---
+
+## ✨ ویژگی‌های وب‌سایت | Website Features
+
+### 🎨 طراحی مدرن | Modern Design
+- **Glass Morphism Effects**: افکت‌های شیشه‌ای زیبا
+- **Gradient Backgrounds**: پس‌زمینه‌های گرادیانت
+- **Responsive Design**: طراحی واکنش‌گرا
+- **Smooth Animations**: انیمیشن‌های نرم
+
+### 🌙 تم‌ها | Themes
+- **Light Theme**: تم روشن
+- **Dark Theme**: تم تاریک
+- **Auto-save**: ذخیره خودکار تنظیمات
+
+### 🌍 زبان‌ها | Languages
+- **Persian (RTL)**: فارسی (راست به چپ)
+- **English (LTR)**: انگلیسی (چپ به راست)
+- **Auto-save**: ذخیره خودکار تنظیمات
 
 ## ✨ ویژگی‌ها | Features
 
