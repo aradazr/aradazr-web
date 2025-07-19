@@ -85,6 +85,13 @@ body {
     mix-blend-mode: difference;
 }
 
+/* Hide mouse follower on mobile devices */
+@media (max-width: 768px) {
+    .mouse-follower {
+        display: none !important;
+    }
+}
+
 .mouse-dot {
     position: absolute;
     width: 8px;
@@ -92,7 +99,7 @@ body {
     background: var(--accent-color);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    transition: all 0.1s ease;
+    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     box-shadow: var(--blue-glow);
 }
 
@@ -103,7 +110,7 @@ body {
     border: 2px solid var(--accent-color);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     opacity: 0.5;
     animation: pulse 3s ease-in-out infinite;
 }
@@ -121,10 +128,17 @@ body {
     font-weight: 600;
     transform: translate(-50%, -50%);
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     pointer-events: none;
     z-index: 10000;
     white-space: nowrap;
+}
+
+/* Hide cursor text on mobile devices */
+@media (max-width: 768px) {
+    .cursor-text {
+        display: none !important;
+    }
 }
 
 /* Container */
@@ -1877,6 +1891,7 @@ body {
     color: white;
     font-size: 1.1rem;
     font-weight: 600;
+    font-family: 'Peyda', sans-serif;
     cursor: none;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
@@ -2417,12 +2432,67 @@ html[dir='rtl'] .author-info p {
     text-align: right;
 }
 
-[dir="rtl"] .skill-card .skill-title,
 [dir="rtl"] .skill-card .skill-desc,
 [dir="rtl"] .testimonial-card .testimonial-text,
 [dir="rtl"] .testimonial-card .testimonial-author {
     direction: rtl;
     text-align: right;
+}
+
+/* Keep skill titles centered in both languages */
+[dir="rtl"] .skill-card .skill-title {
+    text-align: center;
+    direction: ltr;
+}
+
+/* Force RTL for footer social links in Persian */
+html[dir='rtl'] .footer .social-links,
+[dir="rtl"] .footer .social-links,
+html[dir='rtl'] .social-links,
+[dir="rtl"] .social-links {
+    flex-direction: row-reverse !important;
+    justify-content: flex-end !important;
+    direction: rtl !important;
+    width: 100% !important;
+}
+
+/* Additional RTL rules for social links */
+html[dir='rtl'] .footer .social-link,
+[dir="rtl"] .footer .social-link,
+html[dir='rtl'] .social-link,
+[dir="rtl"] .social-link {
+    margin-left: 0 !important;
+    margin-right: 0.5rem !important;
+}
+
+html[dir='rtl'] .footer .social-link:last-child,
+[dir="rtl"] .footer .social-link:last-child,
+html[dir='rtl'] .social-link:last-child,
+[dir="rtl"] .social-link:last-child {
+    margin-right: 0 !important;
+}
+
+/* Force footer section alignment for RTL */
+html[dir='rtl'] .footer .footer-section,
+[dir="rtl"] .footer .footer-section {
+    text-align: right !important;
+}
+
+html[dir='rtl'] .footer .footer-section:first-child,
+[dir="rtl"] .footer .footer-section:first-child {
+    text-align: right !important;
+}
+
+html[dir='rtl'] .footer .footer-logo,
+[dir="rtl"] .footer .footer-logo {
+    text-align: right !important;
+}
+
+/* Fix footer section h4 underline for RTL */
+html[dir='rtl'] .footer .footer-section h4::after,
+[dir="rtl"] .footer .footer-section h4::after {
+    left: auto !important;
+    right: 0 !important;
 }
 
 /* Language Toggle Button */
@@ -2459,6 +2529,7 @@ html[dir='rtl'] .author-info p {
     font-weight: 600;
     color: var(--text-secondary);
     transition: all 0.3s ease;
+    font-family: 'Peyda', sans-serif;
 }
 
 .lang-toggle .toggle-slider {
@@ -3611,6 +3682,36 @@ html[dir='rtl'] .author-info p {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
+
+    /* Project cards for tablet */
+    .project-card {
+        width: 100%;
+        padding: 24px 20px 20px 20px;
+        border-radius: 18px;
+    }
+
+    .project-title {
+        font-size: 1.3rem;
+    }
+
+    .project-desc {
+        font-size: 1rem;
+    }
+
+    .project-actions {
+        gap: 12px;
+        margin-top: 16px;
+    }
+
+    .project-actions .btn {
+        font-size: 0.95rem;
+        padding: 10px 18px;
+        border-radius: 12px;
+    }
+
+    .projects-list {
+        gap: 24px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -3620,6 +3721,95 @@ html[dir='rtl'] .author-info p {
 
     .about-title {
         font-size: 2rem;
+    }
+
+    /* Force RTL contact rules for small mobile */
+    html[dir='rtl'] .contact-content,
+    [dir="rtl"] .contact-content {
+        gap: 1.5rem !important;
+        padding: 15px 0 !important;
+    }
+
+    html[dir='rtl'] .contact-info,
+    [dir="rtl"] .contact-info {
+        gap: 16px !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    html[dir='rtl'] .contact-item,
+    [dir="rtl"] .contact-item {
+        width: 100% !important;
+        padding: 1.2rem !important;
+        gap: 0.8rem !important;
+        margin-bottom: 1rem !important;
+        border-radius: 16px !important;
+        direction: rtl !important;
+        text-align: center !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    html[dir='rtl'] .contact-icon,
+    [dir="rtl"] .contact-icon {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 1.1rem !important;
+    }
+
+    html[dir='rtl'] .contact-details h3,
+    [dir="rtl"] .contact-details h3 {
+        font-size: 1rem !important;
+        margin-bottom: 0.3rem !important;
+        text-align: center !important;
+    }
+
+    html[dir='rtl'] .contact-details p,
+    [dir="rtl"] .contact-details p {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+        text-align: center !important;
+    }
+
+    html[dir='rtl'] .contact-form form,
+    [dir="rtl"] .contact-form form {
+        padding: 1.5rem !important;
+        border-radius: 16px !important;
+        direction: rtl !important;
+        text-align: right !important;
+    }
+
+    html[dir='rtl'] .form-group,
+    [dir="rtl"] .form-group {
+        margin-bottom: 1.5rem !important;
+    }
+
+    html[dir='rtl'] .form-group input,
+    html[dir='rtl'] .form-group textarea,
+    [dir="rtl"] .form-group input,
+    [dir="rtl"] .form-group textarea {
+        padding: 0.7rem 1rem !important;
+        font-size: 0.9rem !important;
+        border-radius: 12px !important;
+        direction: rtl !important;
+        text-align: right !important;
+    }
+
+    html[dir='rtl'] .form-group label,
+    [dir="rtl"] .form-group label {
+        font-size: 0.75rem !important;
+        top: -0.3rem !important;
+        right: 0.8rem !important;
+        left: auto !important;
+        direction: rtl !important;
+    }
+
+    html[dir='rtl'] .submit-btn,
+    [dir="rtl"] .submit-btn {
+        padding: 0.7rem 1.2rem !important;
+        font-size: 0.95rem !important;
+        border-radius: 12px !important;
+        direction: rtl !important;
     }
 
     .about-stats {
@@ -3668,6 +3858,120 @@ html[dir='rtl'] .author-info p {
 
     .work-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Project cards for small mobile */
+    .project-card {
+        width: 100%;
+        padding: 20px 16px 16px 16px;
+        border-radius: 16px;
+        margin-bottom: 16px;
+    }
+
+    .project-title {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+    }
+
+    .project-desc {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .project-actions {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 12px;
+    }
+
+    .project-actions .btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.9rem;
+        padding: 10px 16px;
+        border-radius: 10px;
+    }
+
+    .projects-list {
+        gap: 20px;
+    }
+
+    /* Contact section for small mobile */
+    .contact-content {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        padding: 15px 0 !important;
+    }
+
+    .contact-info {
+        order: 1 !important;
+        width: 100% !important;
+        margin-bottom: 1.5rem !important;
+        gap: 16px !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .contact-form-wrapper {
+        order: 2 !important;
+        width: 100% !important;
+    }
+
+    .contact-item {
+        width: 100% !important;
+        padding: 1.2rem !important;
+        gap: 0.8rem !important;
+        margin-bottom: 1rem !important;
+        border-radius: 16px !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .contact-icon {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 1.1rem !important;
+    }
+
+    .contact-details h3 {
+        font-size: 1rem !important;
+        margin-bottom: 0.3rem !important;
+        text-align: center !important;
+    }
+
+    .contact-details p {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+        text-align: center !important;
+    }
+
+    .contact-form form {
+        padding: 1.5rem !important;
+        border-radius: 16px !important;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem !important;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.7rem 1rem !important;
+        font-size: 0.9rem !important;
+        border-radius: 12px !important;
+    }
+
+    .form-group label {
+        font-size: 0.75rem !important;
+        top: -0.3rem !important;
+        left: 0.8rem !important;
+    }
+
+    .submit-btn {
+        padding: 0.7rem 1.2rem !important;
+        font-size: 0.95rem !important;
+        border-radius: 12px !important;
     }
 }
 
@@ -4491,7 +4795,27 @@ html[dir='rtl'] .author-info p {
     .project-card {
         min-width: 0;
         width: 95%;
-        padding: 24px 10px 18px 10px;
+        padding: 24px 20px 20px 20px;
+        border-radius: 18px;
+    }
+
+    .project-title {
+        font-size: 1.3rem;
+    }
+
+    .project-desc {
+        font-size: 1rem;
+    }
+
+    .project-actions {
+        gap: 12px;
+        margin-top: 16px;
+    }
+
+    .project-actions .btn {
+        font-size: 0.95rem;
+        padding: 8px 18px;
+        border-radius: 12px;
     }
 }
 
@@ -5023,6 +5347,16 @@ html[dir='rtl'] .testimonial-text {
         font-size: 1.3rem;
     }
 
+    /* Hide skills after the first 4 in mobile */
+    .skills-grid .skill-card:nth-child(n+5) {
+        display: none;
+    }
+
+    /* Show all skills when expanded */
+    .skills-grid.expanded .skill-card:nth-child(n+5) {
+        display: block;
+    }
+
     .testimonial-text {
         font-size: 0.95rem;
         padding-top: 28px;
@@ -5385,6 +5719,40 @@ html[dir='rtl'] .testimonial-card .quote-icon {
         max-width: 400px;
         margin: 0 auto;
         text-align: center;
+        padding: 1.5rem;
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .contact-details h3 {
+        font-size: 1.1rem;
+    }
+
+    .contact-details p {
+        font-size: 0.95rem;
+    }
+
+    .contact-form form {
+        padding: 2rem;
+        border-radius: 20px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    .submit-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
     }
 }
 
@@ -5397,15 +5765,309 @@ html[dir='rtl'] .contact-info {
 html[dir='rtl'] .contact-item {
     text-align: center !important;
     margin: 0 auto !important;
+    direction: rtl !important;
 }
 
 html[dir='rtl'] .contact-form-wrapper {
     margin-top: 0 !important;
 }
 
+/* RTL Contact Responsive Rules */
+@media (max-width: 900px) {
+    html[dir='rtl'] .contact-info {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 24px !important;
+        width: 100% !important;
+    }
+
+    html[dir='rtl'] .contact-item {
+        width: 100% !important;
+        max-width: 400px !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+        padding: 1.5rem !important;
+        gap: 1rem !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        direction: rtl !important;
+    }
+
+    html[dir='rtl'] .contact-icon {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.2rem !important;
+    }
+
+    html[dir='rtl'] .contact-details h3 {
+        font-size: 1.1rem !important;
+        text-align: center !important;
+    }
+
+    html[dir='rtl'] .contact-details p {
+        font-size: 0.95rem !important;
+        text-align: center !important;
+    }
+
+    html[dir='rtl'] .contact-form form {
+        padding: 2rem !important;
+        border-radius: 20px !important;
+        direction: rtl !important;
+        text-align: right !important;
+    }
+
+    html[dir='rtl'] .form-group input,
+    html[dir='rtl'] .form-group textarea {
+        padding: 0.8rem 1.2rem !important;
+        font-size: 0.95rem !important;
+        direction: rtl !important;
+        text-align: right !important;
+    }
+
+    html[dir='rtl'] .form-group label {
+        right: 1rem !important;
+        left: auto !important;
+        direction: rtl !important;
+    }
+
+    html[dir='rtl'] .submit-btn {
+        padding: 0.8rem 1.5rem !important;
+        font-size: 1rem !important;
+        direction: rtl !important;
+    }
+}
+
+@media (max-width: 480px) {
+    html[dir='rtl'] .contact-content {
+        gap: 1.5rem !important;
+        padding: 15px 0 !important;
+    }
+
+    html[dir='rtl'] .contact-info {
+        gap: 16px !important;
+    }
+
+    html[dir='rtl'] .contact-item {
+        width: 100% !important;
+        padding: 1.2rem !important;
+        gap: 0.8rem !important;
+        margin-bottom: 1rem !important;
+        border-radius: 16px !important;
+        direction: rtl !important;
+    }
+
+    html[dir='rtl'] .contact-icon {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 1.1rem !important;
+    }
+
+    html[dir='rtl'] .contact-details h3 {
+        font-size: 1rem !important;
+        margin-bottom: 0.3rem !important;
+        text-align: center !important;
+    }
+
+    html[dir='rtl'] .contact-details p {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+        text-align: center !important;
+    }
+
+    html[dir='rtl'] .contact-form form {
+        padding: 1.5rem !important;
+        border-radius: 16px !important;
+        direction: rtl !important;
+        text-align: right !important;
+    }
+
+    html[dir='rtl'] .form-group {
+        margin-bottom: 1.5rem !important;
+    }
+
+    html[dir='rtl'] .form-group input,
+    html[dir='rtl'] .form-group textarea {
+        padding: 0.7rem 1rem !important;
+        font-size: 0.9rem !important;
+        border-radius: 12px !important;
+        direction: rtl !important;
+        text-align: right !important;
+    }
+
+    html[dir='rtl'] .form-group label {
+        font-size: 0.75rem !important;
+        top: -0.3rem !important;
+        right: 0.8rem !important;
+        left: auto !important;
+        direction: rtl !important;
+    }
+
+    html[dir='rtl'] .submit-btn {
+        padding: 0.7rem 1.2rem !important;
+        font-size: 0.95rem !important;
+        border-radius: 12px !important;
+        direction: rtl !important;
+    }
+}
+
+/* Additional RTL Contact Rules for better mobile support */
+html[dir='rtl'] .contact-item {
+    direction: rtl !important;
+    text-align: center !important;
+}
+
+html[dir='rtl'] .contact-form form {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[dir='rtl'] .form-group input,
+html[dir='rtl'] .form-group textarea {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[dir='rtl'] .form-group label {
+    right: 1rem !important;
+    left: auto !important;
+    direction: rtl !important;
+}
+
+html[dir='rtl'] .submit-btn {
+    direction: rtl !important;
+}
+
+/* Force contact layout for RTL and mobile */
+html[dir='rtl'] .contact-content,
+[dir="rtl"] .contact-content {
+    flex-direction: column !important;
+    gap: 2rem !important;
+}
+
+html[dir='rtl'] .contact-info,
+[dir="rtl"] .contact-info {
+    order: 1 !important;
+    width: 100% !important;
+    margin-bottom: 2rem !important;
+}
+
+html[dir='rtl'] .contact-form-wrapper,
+[dir="rtl"] .contact-form-wrapper {
+    order: 2 !important;
+    width: 100% !important;
+}
+
+/* Force RTL for Persian language regardless of HTML lang attribute */
+[dir="rtl"] .contact-item,
+html[dir='rtl'] .contact-item {
+    direction: rtl !important;
+    text-align: center !important;
+}
+
+[dir="rtl"] .contact-form form,
+html[dir='rtl'] .contact-form form {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+[dir="rtl"] .form-group input,
+[dir="rtl"] .form-group textarea,
+html[dir='rtl'] .form-group input,
+html[dir='rtl'] .form-group textarea {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+[dir="rtl"] .form-group label,
+html[dir='rtl'] .form-group label {
+    right: 1rem !important;
+    left: auto !important;
+    direction: rtl !important;
+}
+
+[dir="rtl"] .submit-btn,
+html[dir='rtl'] .submit-btn {
+    direction: rtl !important;
+}
+
 @media (max-width: 600px) {
     .floating-elements {
         display: none !important;
+    }
+
+    /* Force contact layout for mobile */
+    .contact-content {
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+
+    .contact-info {
+        order: 1 !important;
+        width: 100% !important;
+        margin-bottom: 2rem !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+    }
+
+    .contact-form-wrapper {
+        order: 2 !important;
+        width: 100% !important;
+    }
+
+    /* Force RTL contact rules for mobile */
+    html[dir='rtl'] .contact-info,
+    [dir="rtl"] .contact-info {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+        width: 100% !important;
+        order: 1 !important;
+        margin-bottom: 2rem !important;
+    }
+
+    html[dir='rtl'] .contact-item,
+    [dir="rtl"] .contact-item {
+        width: 100% !important;
+        padding: 1.5rem !important;
+        gap: 1rem !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        direction: rtl !important;
+        text-align: center !important;
+    }
+
+    html[dir='rtl'] .contact-form-wrapper,
+    [dir="rtl"] .contact-form-wrapper {
+        order: 2 !important;
+        width: 100% !important;
+    }
+
+    html[dir='rtl'] .contact-form form,
+    [dir="rtl"] .contact-form form {
+        direction: rtl !important;
+        text-align: right !important;
+        padding: 2rem !important;
+    }
+
+    html[dir='rtl'] .form-group input,
+    html[dir='rtl'] .form-group textarea,
+    [dir="rtl"] .form-group input,
+    [dir="rtl"] .form-group textarea {
+        direction: rtl !important;
+        text-align: right !important;
+    }
+
+    html[dir='rtl'] .form-group label,
+    [dir="rtl"] .form-group label {
+        right: 1rem !important;
+        left: auto !important;
+        direction: rtl !important;
+    }
+
+    html[dir='rtl'] .submit-btn,
+    [dir="rtl"] .submit-btn {
+        direction: rtl !important;
     }
 }
 

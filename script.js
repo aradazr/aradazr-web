@@ -1,5 +1,6 @@
 // DOM Elements - will be initialized after DOM loads
 let themeToggle, languageToggle, menuToggle, navMenu, mouseFollower, mouseDot, mouseTrail, cursorText;
+let viewMoreSkillsBtn, viewLessSkillsBtn, skillsGrid;
 
 // Theme Management
 let currentTheme = localStorage.getItem('theme') || 'light';
@@ -89,6 +90,9 @@ function switchLanguage(lang) {
         langToggle.classList.toggle('active', lang === 'fa');
     }
 
+    // Update language toggle button text
+    updateLanguageText();
+
     // Store language preference
     localStorage.setItem('preferredLanguage', lang);
 
@@ -107,7 +111,7 @@ function updateLanguageText() {
     if (!languageToggle) return;
     const langText = languageToggle.querySelector('.lang-text');
     if (langText) {
-        langText.textContent = currentLanguage === 'en' ? 'FA' : 'EN';
+        langText.textContent = currentLanguage === 'en' ? 'فا' : 'EN';
     }
 }
 
@@ -182,13 +186,13 @@ function updateMousePosition(e) {
 function animateMouseFollower() {
     if (!mouseDot || !mouseTrail) return;
 
-    // Smooth dot movement
-    dotX += (mouseX - dotX) * 0.1;
-    dotY += (mouseY - dotY) * 0.1;
+    // Smooth dot movement with improved easing
+    dotX += (mouseX - dotX) * 0.15;
+    dotY += (mouseY - dotY) * 0.15;
 
-    // Smooth trail movement
-    trailX += (mouseX - trailX) * 0.05;
-    trailY += (mouseY - trailY) * 0.05;
+    // Smooth trail movement with improved easing
+    trailX += (mouseX - trailX) * 0.08;
+    trailY += (mouseY - trailY) * 0.08;
 
     // Update positions
     mouseDot.style.left = dotX + 'px';
@@ -813,17 +817,22 @@ document.addEventListener('DOMContentLoaded', () => {
     initMagneticEffect();
     initParticleSystem();
 
-    // Initialize mouse follower (only if elements exist)
-    if (mouseFollower && mouseDot && mouseTrail) {
+    // Initialize mouse follower (only if elements exist and not on mobile)
+    if (mouseFollower && mouseDot && mouseTrail && window.innerWidth > 768) {
         document.addEventListener('mousemove', updateMousePosition);
         animateMouseFollower();
     }
 
-    // Initialize mouse effects
-    initMouseMoveEffects();
+    // Initialize mouse effects (only on desktop)
+    if (window.innerWidth > 768) {
+        initMouseMoveEffects();
+    }
 
     // Initialize about me parallax effects
     initAboutMeParallax();
+
+    // Initialize skills view more functionality
+    initSkillsViewMore();
 
     // Event listeners (only if elements exist)
     if (themeToggle) {
@@ -1244,4 +1253,93 @@ function initAboutMeParallax() {
             `;
         });
     });
-} 
+}
+
+// Skills View More functionality
+function initSkillsViewMore() {
+    viewMoreSkillsBtn = document.getElementById('viewMoreSkills');
+    viewLessSkillsBtn = document.getElementById('viewLessSkills');
+    skillsGrid = document.querySelector('.skills-grid');
+
+    if (!viewMoreSkillsBtn || !viewLessSkillsBtn || !skillsGrid) return;
+
+    // Check if we're on mobile
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+        // Initially hide skills after the first 4
+        const skillCards = skillsGrid.querySelectorAll('.skill-card');
+        skillCards.forEach((card, index) => {
+            if (index >= 4) {
+                card.style.display = 'none';
+            }
+        });
+
+        // Show view more button
+        viewMoreSkillsBtn.style.display = 'inline-block';
+        viewLessSkillsBtn.style.display = 'none';
+    } else {
+        // On desktop, show all skills and hide buttons
+        viewMoreSkillsBtn.style.display = 'none';
+        viewLessSkillsBtn.style.display = 'none';
+        const skillCards = skillsGrid.querySelectorAll('.skill-card');
+        skillCards.forEach(card => {
+            card.style.display = 'block';
+        });
+    }
+
+    // Add event listeners
+    viewMoreSkillsBtn.addEventListener('click', showAllSkills);
+    viewLessSkillsBtn.addEventListener('click', hideExtraSkills);
+
+    // Handle window resize
+    window.addEventListener('resize', handleSkillsResize);
+}
+
+function showAllSkills() {
+    const skillCards = skillsGrid.querySelectorAll('.skill-card');
+    skillCards.forEach(card => {
+        card.style.display = 'block';
+    });
+
+    viewMoreSkillsBtn.style.display = 'none';
+    viewLessSkillsBtn.style.display = 'inline-block';
+
+    // Add smooth animation
+    skillsGrid.classList.add('expanded');
+}
+
+function hideExtraSkills() {
+    const skillCards = skillsGrid.querySelectorAll('.skill-card');
+    skillCards.forEach((card, index) => {
+        if (index >= 4) {
+            card.style.display = 'none';
+        }
+    });
+
+    viewMoreSkillsBtn.style.display = 'inline-block';
+    viewLessSkillsBtn.style.display = 'none';
+
+    // Remove expanded class
+    skillsGrid.classList.remove('expanded');
+}
+
+function handleSkillsResize() {
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+        // On mobile, check if skills are expanded
+        const isExpanded = skillsGrid.classList.contains('expanded');
+        if (!isExpanded) {
+            hideExtraSkills();
+        }
+    } else {
+        // On desktop, show all skills
+        const skillCards = skillsGrid.querySelectorAll('.skill-card');
+        skillCards.forEach(card => {
+            card.style.display = 'block';
+        });
+        viewMoreSkillsBtn.style.display = 'none';
+        viewLessSkillsBtn.style.display = 'none';
+    }
+}
