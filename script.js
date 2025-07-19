@@ -1381,7 +1381,7 @@ function initMobileMenu() {
     document.addEventListener('click', (e) => {
         const mobileMenu = document.getElementById('mobileMenu');
         const menuToggle = document.getElementById('menuToggle');
-        
+
         if (mobileMenu && mobileMenu.classList.contains('active')) {
             if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
                 closeMobileMenu();
@@ -1389,3 +1389,92 @@ function initMobileMenu() {
         }
     });
 }
+
+// EmailJS is already initialized in HTML
+function initEmailJS() {
+    // EmailJS is initialized in the HTML file
+    console.log('EmailJS is ready');
+}
+
+// Contact Form Handler with EmailJS
+function initContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    if (!contactForm) return;
+
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Show loading state
+        const submitBtn = contactForm.querySelector('.submit-btn');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = currentLanguage === 'en' ? 'Sending...' : 'در حال ارسال...';
+        submitBtn.disabled = true;
+
+        // Get form data
+        const formData = {
+            name: contactForm.querySelector('#name').value,
+            email: contactForm.querySelector('#email').value,
+            subject: contactForm.querySelector('#subject').value,
+            message: contactForm.querySelector('#message').value
+        };
+
+        // Send email using EmailJS
+        emailjs.send('service_eo4iuvq', 'template_8ilbm4r', {
+            to_name: 'آراد آذرپناه',
+            from_name: formData.name,
+            from_email: formData.email,
+            subject: formData.subject,
+            message: formData.message
+        })
+            .then(function (response) {
+                // Success
+                showNotification(
+                    currentLanguage === 'en' ? 'Message sent successfully!' : 'پیام با موفقیت ارسال شد!',
+                    'success'
+                );
+                contactForm.reset();
+            })
+            .catch(function (error) {
+                // Error
+                showNotification(
+                    currentLanguage === 'en' ? 'Failed to send message. Please try again.' : 'خطا در ارسال پیام. لطفاً دوباره تلاش کنید.',
+                    'error'
+                );
+                console.error('EmailJS Error:', error);
+            })
+            .finally(function () {
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+    });
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize all components
+    initTheme();
+    initLanguage();
+    initMouseMoveEffects();
+    initSmoothScrolling();
+    initScrollAnimations();
+    initNavbarScroll();
+    initContactForm();
+    initTypingAnimation();
+    initFloatingCards();
+    initMagneticEffect();
+    initParticleSystem();
+    initParallax();
+    initAboutMeParallax();
+    initSkillsViewMore();
+    initMobileMenu();
+    initViewMoreProjects();
+
+    // Fetch data from API
+    fetchProjectsFromAPI();
+    fetchTestimonialsFromAPI();
+
+    // Add event listeners
+    addSeeMoreEventListeners();
+    handleSkillsResize();
+});
