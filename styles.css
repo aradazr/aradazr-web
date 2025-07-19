@@ -7064,33 +7064,3 @@ html[dir='rtl'] .about-me-description p {
 .contact-details-col.center .contact-value {
     margin-left: 0;
 }
-
-.contact-social-links {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 0.5rem;
-}
-
-.contact-social-link {
-    width: 40px;
-    height: 40px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.contact-social-link:hover {
-    background: var(--accent-color);
-    color: white;
-    transform: scale(1.1);
-    border-color: var(--accent-color);
-}
