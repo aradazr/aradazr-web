@@ -165,9 +165,23 @@ function updateAllTexts() {
 
 // Mobile Menu
 function toggleMobileMenu() {
-    if (!navMenu || !menuToggle) return;
-    navMenu.classList.toggle('active');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuToggle = document.getElementById('menuToggle');
+
+    if (!mobileMenu || !menuToggle) return;
+
+    mobileMenu.classList.toggle('active');
     menuToggle.classList.toggle('active');
+}
+
+function closeMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuToggle = document.getElementById('menuToggle');
+
+    if (!mobileMenu || !menuToggle) return;
+
+    mobileMenu.classList.remove('active');
+    menuToggle.classList.remove('active');
 }
 
 // Advanced Mouse Follower
@@ -834,15 +848,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize skills view more functionality
     initSkillsViewMore();
 
+    // Initialize mobile menu functionality
+    initMobileMenu();
+
     // Event listeners (only if elements exist)
     if (themeToggle) {
         themeToggle.addEventListener('click', toggleTheme);
     }
     if (languageToggle) {
         languageToggle.addEventListener('click', toggleLanguage);
-    }
-    if (menuToggle) {
-        menuToggle.addEventListener('click', toggleMobileMenu);
     }
 
     // Optimize scroll events
@@ -1342,4 +1356,36 @@ function handleSkillsResize() {
         viewMoreSkillsBtn.style.display = 'none';
         viewLessSkillsBtn.style.display = 'none';
     }
+}
+
+// Initialize mobile menu functionality
+function initMobileMenu() {
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', toggleMobileMenu);
+    }
+
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+    }
+
+    // Close menu when clicking on nav links
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuToggle = document.getElementById('menuToggle');
+        
+        if (mobileMenu && mobileMenu.classList.contains('active')) {
+            if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                closeMobileMenu();
+            }
+        }
+    });
 }

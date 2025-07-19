@@ -30,7 +30,7 @@
                 </div>
                 <div class="nav-menu">
                     <a href="#home" class="nav-link" data-en="Home" data-fa="خانه">Home</a>
-                    <a href="#work" class="nav-link" data-en="Work" data-fa="کارها">Work</a>
+                    <a href="#projects" class="nav-link" data-en="Work" data-fa="کارها">Work</a>
                     <a href="#about" class="nav-link" data-en="About" data-fa="درباره">About</a>
                     <a href="#contact" class="nav-link" data-en="Contact" data-fa="تماس">Contact</a>
                 </div>
@@ -46,6 +46,41 @@
                         <span></span>
                         <span></span>
                     </button>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div class="mobile-menu" id="mobileMenu">
+                    <!-- Floating Elements for Parallax Effect -->
+                    <div class="floating-element"></div>
+                    <div class="floating-element"></div>
+                    <div class="floating-element"></div>
+
+                    <div class="mobile-menu-content">
+                        <div class="mobile-menu-header">
+                            <div class="mobile-logo">ARADAZR</div>
+                            <button class="mobile-menu-close" id="mobileMenuClose">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <nav class="mobile-nav">
+                            <a href="#home" class="mobile-nav-link" data-en="Home" data-fa="خانه">
+                                <i class="fas fa-home"></i>
+                                <span>Home</span>
+                            </a>
+                            <a href="#projects" class="mobile-nav-link" data-en="Work" data-fa="کارها">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Work</span>
+                            </a>
+                            <a href="#about" class="mobile-nav-link" data-en="About" data-fa="درباره">
+                                <i class="fas fa-user"></i>
+                                <span>About</span>
+                            </a>
+                            <a href="#contact" class="mobile-nav-link" data-en="Contact" data-fa="تماس">
+                                <i class="fas fa-envelope"></i>
+                                <span>Contact</span>
+                            </a>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -72,15 +107,15 @@
                         Transforming ideas into extraordinary digital solutions that inspire and engage
                     </p>
                     <div class="hero-buttons">
-                        <button class="btn btn-primary" data-cursor="View Project" data-en="View Our Work"
+                        <a href="#projects" class="btn btn-primary" data-cursor="View Project" data-en="View Our Work"
                             data-fa="مشاهده کارها">
                             <span>View Our Work</span>
                             <i class="fas fa-arrow-right"></i>
-                        </button>
-                        <button class="btn btn-secondary" data-cursor="Learn More" data-en="Learn More"
+                        </a>
+                        <a href="#skills" class="btn btn-secondary" data-cursor="Learn More" data-en="Learn More"
                             data-fa="بیشتر بدانید">
                             <span>Learn More</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -429,12 +464,12 @@
                         </div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">150+</div>
+                        <div class="stat-number">15+</div>
                         <div class="stat-label" data-en="Happy Clients" data-fa="مشتری خوشحال">Happy Clients</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">4.9/5</div>
-                        <div class="stat-label" data-en="Average Rating" data-fa="امتیاز متوسط">Average Rating</div>
+                        <div class="stat-label" data-en="Average Rating" data-fa="امتیاز عالی">Average Rating</div>
                     </div>
                 </div>
             </div>
@@ -464,32 +499,60 @@
             <div class="contact-content">
                 <div class="contact-info" style="margin: 0 auto;">
                     <div class="contact-item" data-cursor="Email Us" data-cursor-fa="ایمیل بزنید">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
+                        <div class="contact-details-col center">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
                             <h3 data-en="Email" data-fa="ایمیل">Email</h3>
-                            <p>hello@rerter.com</p>
+                            <a href="mailto:aradazarpanah27@gmail.com"
+                                class="contact-value">aradazarpanah27@gmail.com</a>
                         </div>
                     </div>
 
                     <div class="contact-item" data-cursor="Call Us" data-cursor-fa="تماس بگیرید">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
+                        <div class="contact-details-col center">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
                             <h3 data-en="Phone" data-fa="تلفن">Phone</h3>
-                            <p>+1 (555) 123-4567</p>
+                            <a href="tel:+989337109366" class="contact-value">09337109366</a>
                         </div>
                     </div>
 
                     <div class="contact-item" data-cursor="Visit Us" data-cursor-fa="از ما دیدن کنید">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
+                        <div class="contact-details-col center">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
                             <h3 data-en="Location" data-fa="موقعیت">Location</h3>
-                            <p data-en="San Francisco, CA" data-fa="سان فرانسیسکو، کالیفرنیا">San Francisco, CA</p>
+                            <p class="contact-value" data-en="Iran, Ahvaz" data-fa="ایران, اهواز">San Francisco, CA</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item" data-cursor="Follow Us" data-cursor-fa="ما را دنبال کنید">
+                        <div class="contact-details-col center">
+                            <div class="contact-icon">
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                            <h3 data-en="Social Media" data-fa="شبکه‌های اجتماعی">Social Media</h3>
+                            <div class="contact-social-links">
+                                <a href="https://github.com/aradazr" target="_blank" class="contact-social-link"
+                                    title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/aradazr" target="_blank"
+                                    class="contact-social-link" title="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://t.me/aradazr" target="_blank" class="contact-social-link"
+                                    title="Telegram">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                                <a href="https://www.instagram.com/aradazr.dev/" target="_blank"
+                                    class="contact-social-link" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -539,16 +602,20 @@
                         </p>
                     </div>
                     <div class="social-links">
-                        <a href="#" class="social-link" data-cursor="GitHub" data-cursor-fa="گیت هاب">
+                        <a href="https://github.com/aradazr" target="_blank" class="social-link" data-cursor="GitHub"
+                            data-cursor-fa="گیت هاب">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="#" class="social-link" data-cursor="LinkedIn" data-cursor-fa="لینکدین">
+                        <a href="https://www.linkedin.com/in/aradazr" target="_blank" class="social-link"
+                            data-cursor="LinkedIn" data-cursor-fa="لینکدین">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="#" class="social-link" data-cursor="Telegram" data-cursor-fa="تلگرام">
+                        <a href="https://t.me/aradazr" target="_blank" class="social-link" data-cursor="Telegram"
+                            data-cursor-fa="تلگرام">
                             <i class="fab fa-telegram"></i>
                         </a>
-                        <a href="#" class="social-link" data-cursor="Instagram" data-cursor-fa="اینستاگرام">
+                        <a href="https://www.instagram.com/aradazr.dev/" target="_blank" class="social-link"
+                            data-cursor="Instagram" data-cursor-fa="اینستاگرام">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>
@@ -577,18 +644,18 @@
                 <div class="footer-section">
                     <h4 data-en="Contact" data-fa="تماس">Contact</h4>
                     <ul>
-                        <li><a href="mailto:hello@aradazr.com" data-en="hello@aradazr.com"
-                                data-fa="hello@aradazr.com">hello@aradazr.com</a></li>
-                        <li><a href="tel:+1234567890" data-en="+1 (234) 567-890" data-fa="+۱ (۲۳۴) ۵۶۷-۸۹۰">+1 (234)
-                                567-890</a></li>
-                        <li><a href="#" data-en="Tehran, Iran" data-fa="تهران، ایران">Tehran, Iran</a></li>
+                        <li><a href="mailto:aradazarpanah27@gmail.com" data-en="aradazarpanah27@gmail.com"
+                                data-fa="aradazarpanah27@gmail.com">aradazarpanah27@gmail.com</a></li>
+                        <li><a href="tel:+989337109366" data-en="+989337109366" data-fa="۰۹۳۳۷۱۰۹۳۶۶">+989337109366</a>
+                        </li>
+                        <li><a href="#" data-en="Ahvaz, Iran" data-fa="اهواز، ایران">Tehran, Iran</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
-                    <p data-en="© 2024 Aradazr. All rights reserved." data-fa="© ۱۴۰۳ آرادزر. تمامی حقوق محفوظ است">
+                    <p data-en="© 2024 Aradazr. All rights reserved." data-fa="© ۱۴۰۴  آراد آذر. تمامی حقوق محفوظ است">
                         ©
                         2024 Aradazr. All rights reserved.</p>
                     <div class="footer-links">
