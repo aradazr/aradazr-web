@@ -225,13 +225,13 @@ function initParallax() {
         const scrolled = window.pageYOffset;
         const rate = scrolled * -0.5;
 
-        // Parallax for background layers - DISABLED to fix footer spacing
-        // parallaxLayers.forEach((layer, index) => {
-        //     const speed = 0.1 + (index * 0.05);
-        //     const yPos = -(scrolled * speed);
-        //     const xPos = Math.sin(scrolled * 0.001 + index) * 20;
-        //     layer.style.transform = `translate(${xPos}px, ${yPos}px) rotate(${scrolled * 0.02}deg)`;
-        // });
+        // Parallax for background layers
+        parallaxLayers.forEach((layer, index) => {
+            const speed = 0.1 + (index * 0.05);
+            const yPos = -(scrolled * speed);
+            const xPos = Math.sin(scrolled * 0.001 + index) * 20;
+            layer.style.transform = `translate(${xPos}px, ${yPos}px) rotate(${scrolled * 0.02}deg)`;
+        });
 
         // Parallax for sections - DISABLED to fix footer spacing
         // sections.forEach((section, index) => {
@@ -240,19 +240,19 @@ function initParallax() {
         //     section.style.transform = `translateY(${yPos}px)`;
         // });
 
-        // Parallax for cards - DISABLED to fix footer spacing
-        // cards.forEach((card, index) => {
-        //     const rect = card.getBoundingClientRect();
-        //     const cardTop = rect.top + window.pageYOffset;
-        //     const cardCenter = cardTop + rect.height / 2;
-        //     const distance = scrolled - cardCenter + window.innerHeight / 2;
-        //     const speed = 0.03;
-        //     const yPos = distance * speed;
+        // Parallax for cards
+        cards.forEach((card, index) => {
+            const rect = card.getBoundingClientRect();
+            const cardTop = rect.top + window.pageYOffset;
+            const cardCenter = cardTop + rect.height / 2;
+            const distance = scrolled - cardCenter + window.innerHeight / 2;
+            const speed = 0.03;
+            const yPos = distance * speed;
 
-        //     if (Math.abs(distance) < window.innerHeight * 2) {
-        //         card.style.transform = `translateY(${yPos}px)`;
-        //     }
-        // });
+            if (Math.abs(distance) < window.innerHeight * 2) {
+                card.style.transform = `translateY(${yPos}px)`;
+            }
+        });
     });
 }
 

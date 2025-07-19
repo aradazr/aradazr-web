@@ -51,14 +51,9 @@
 
 html,
 body {
-    height: auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    display: block !important;
-    flex: none !important;
-    flex-grow: 0 !important;
-    flex-shrink: 0 !important;
-    flex-basis: auto !important;
+    height: auto;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -70,199 +65,12 @@ body {
     transition: all 0.3s ease;
     cursor: none;
     /* Hide default cursor */
-    display: block !important;
-    min-height: auto !important;
-    box-sizing: border-box !important;
+    display: block;
+    min-height: auto;
 }
 
-/* Main content removed - sections are now direct children of body */
-
-/* Force all sections to have proper height */
-section {
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    box-sizing: border-box !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    transform: none !important;
-    transition: none !important;
-    will-change: auto !important;
-}
-
-/* Force remove all spacing between contact and footer */
-.contact {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-.contact-content {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-.contact-form-wrapper {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-.contact-form {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-.contact-form form {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-.footer {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-}
-
-/* Force all elements to have no extra spacing */
-* {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-/* Force body and html to have no extra height */
-html,
-body {
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    display: block !important;
-    flex: none !important;
-    flex-grow: 0 !important;
-    flex-shrink: 0 !important;
-    flex-basis: auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-/* Force all direct children of body to have no extra spacing */
-body>* {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-}
-
-/* Force all direct children of html to have no extra spacing */
-html>* {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-}
-
-/* Specific overrides for contact section */
-.contact .section-header {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-.contact-info {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-.contact-item {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-.form-group {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-/* Force footer to stick to content */
-.footer {
-    position: relative !important;
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-    height: auto !important;
-    min-height: auto !important;
-}
-
-/* Force remove all spacing between contact and footer - ULTIMATE FIX */
-.contact,
-.contact *,
-.footer,
-.footer * {
-    margin: 0 !important;
-    padding: 0 !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    transform: none !important;
-    transition: none !important;
-    will-change: auto !important;
-}
-
-/* Force body to have no extra height */
-body.loaded,
-body {
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    display: block !important;
-    flex: none !important;
-    flex-grow: 0 !important;
-    flex-shrink: 0 !important;
-    flex-basis: auto !important;
-}
-
-/* Force all sections to be compact */
-section {
-    margin: 0 !important;
-    padding: 0 !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    transform: none !important;
-    transition: none !important;
-    will-change: auto !important;
-    overflow: visible !important;
-    box-sizing: border-box !important;
-}
-
-/* Force contact section to be minimal */
-.contact {
-    margin: 0 !important;
-    padding: 0 !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-}
-
-/* Force footer to be minimal */
-.footer {
-    margin: 0 !important;
-    padding: 0 !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    position: relative !important;
-}
-
-/* Force all divs inside main-content to have proper height */
-.main-content>div {
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    box-sizing: border-box !important;
+.main-content {
+    display: contents;
 }
 
 /* Mouse Follower */
@@ -317,7 +125,6 @@ section {
     pointer-events: none;
     z-index: 10000;
     white-space: nowrap;
-    display: none !important;
 }
 
 /* Container */
@@ -484,7 +291,6 @@ section {
 /* Hero Section */
 .hero {
     min-height: 80vh;
-    height: auto;
     display: flex;
     align-items: center;
     position: relative;
@@ -854,7 +660,7 @@ section {
 /* Section Styles */
 .section-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
 }
 
 .section-title {
@@ -1880,10 +1686,6 @@ section {
     overflow: hidden;
 }
 
-.contact .section-header {
-    margin-bottom: 1rem;
-}
-
 .contact::before {
     content: '';
     position: absolute;
@@ -1901,9 +1703,8 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0;
-    padding: 0;
-    margin-bottom: 0;
+    gap: 1rem;
+    padding: 20px 0;
 }
 
 .contact-info {
@@ -1912,7 +1713,7 @@ section {
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    gap: 16px;
+    gap: 32px;
     width: 100%;
 }
 
@@ -1920,8 +1721,8 @@ section {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    padding: 1rem;
-    margin-bottom: 0;
+    padding: 2rem;
+    margin-bottom: 2rem;
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -2001,7 +1802,7 @@ section {
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
     border-radius: 25px;
-    padding: 1.5rem;
+    padding: 3rem;
     box-shadow: var(--glass-shadow);
     transition: all 0.4s ease;
 }
@@ -2013,7 +1814,7 @@ section {
 
 .form-group {
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .form-group input,
@@ -2108,11 +1909,9 @@ section {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-top: 1px solid var(--glass-border);
-    position: relative !important;
+    position: relative;
     overflow: hidden;
-    margin-top: -50px !important;
-    height: auto !important;
-    min-height: auto !important;
+    margin-top: 0;
 }
 
 .footer::before {
@@ -3934,7 +3733,7 @@ html[dir='rtl'] .author-info p {
 
 /* Project Details Page Styles */
 .project-hero {
-    min-height: auto;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
@@ -3955,7 +3754,7 @@ html[dir='rtl'] .author-info p {
 /* Ensure project details page is visible */
 .project-details-page {
     background: var(--bg-primary);
-    min-height: auto;
+    min-height: 100vh;
 }
 
 /* Emergency fallback colors */
@@ -5194,7 +4993,7 @@ html[dir='rtl'] .testimonial-text {
 
     .skills,
     .testimonials {
-        padding: 0;
+        padding: 80px 0;
     }
 
     .skills-grid,
@@ -5300,7 +5099,7 @@ html[dir='rtl'] .testimonial-text {
 
     .skills,
     .testimonials {
-        padding: 0;
+        padding: 60px 0;
     }
 
     .skills-content,
